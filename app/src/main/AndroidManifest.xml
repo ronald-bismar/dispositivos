@@ -15,6 +15,16 @@
          y monitorear cambios en la conectividad -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
+    <!--Bluetooth-->
+    <!-- Para desactivar Bluetooth en versiones anteriores a Android 13 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- Para Android 12 (API 31) y superior -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
