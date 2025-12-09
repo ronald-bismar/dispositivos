@@ -267,7 +267,7 @@ fun DispositivosScreen(
                     modifier = Modifier.padding(end = 8.dp)
                 )
                 Text(
-                    text = "3.- Pantalla"
+                    text = "4.- Pantalla"
 
                 )
             }

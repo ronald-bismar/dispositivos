@@ -52,88 +52,11 @@ class PantallaScreenActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Control de Brillo",
+                    text = "Pantalla",
                     style = MaterialTheme.typography.headlineMedium,
                     modifier = Modifier.padding(bottom = 32.dp)
                 )
 
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "Brillo Actual",
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = "${round((brightnessValue.toDouble() / 255) * 100).toInt()}%",
-                            style = MaterialTheme.typography.displayMedium,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                Button(
-                    onClick = {
-                        if (!hasWriteSettingsPermission(context)) {
-                            changeWriteSettingsPermission(context)
-                        } else {
-                            if (brightnessValue >= 11) {
-                                brightnessValue -= 10
-                                changeScreenBrightness(context, brightnessValue)
-                                showBrightnessToast(context, brightnessValue)
-                            }
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(60.dp)
-                        .padding(horizontal = 32.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.secondary
-                    )
-                ) {
-                    Text(
-                        text = "- Disminuir Brillo",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Button(
-                    onClick = {
-                        if (!hasWriteSettingsPermission(context)) {
-                            changeWriteSettingsPermission(context)
-                        } else {
-                            if (brightnessValue <= 245) {
-                                brightnessValue += 10
-                                changeScreenBrightness(context, brightnessValue)
-                                showBrightnessToast(context, brightnessValue)
-                            }
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(60.dp)
-                        .padding(horizontal = 32.dp)
-                ) {
-                    Text(
-                        text = "+ Aumentar Brillo",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                }
 
                 Spacer(modifier = Modifier.height(32.dp))
 
