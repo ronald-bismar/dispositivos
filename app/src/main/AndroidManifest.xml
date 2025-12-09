@@ -24,6 +24,9 @@
     <!-- Para Android 12 (API 31) y superior -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 
+    <!--Microfono-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 
     <application
         android:allowBackup="true"
@@ -44,6 +47,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.audiorecordtest.GrabacionDeAudioActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dispositivos">
         </activity>
     </application>
 
