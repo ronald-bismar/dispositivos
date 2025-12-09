@@ -1,24 +1,20 @@
-package com.android.audiorecordtest
+package com.example.dispositivos
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import java.io.IOException
 
-private const val LOG_TAG = "AudioRecordTest"
+private const val TAG = "GrabacionDeAudioActivity"
 
 class GrabacionDeAudioActivity : ComponentActivity() {
 
@@ -106,7 +102,7 @@ class GrabacionDeAudioActivity : ComponentActivity() {
                 prepare()
                 start()
             } catch (e: IOException) {
-                Log.e(LOG_TAG, "prepare() failed: ${e.message}")
+                Log.e(TAG, "prepare() failed: ${e.message}")
             }
         }
     }
@@ -117,7 +113,7 @@ class GrabacionDeAudioActivity : ComponentActivity() {
                 stop()
                 release()
             } catch (e: Exception) {
-                Log.e(LOG_TAG, "stop() failed: ${e.message}")
+                Log.e(TAG, "stop() failed: ${e.message}")
             }
         }
         recorder = null
@@ -130,7 +126,7 @@ class GrabacionDeAudioActivity : ComponentActivity() {
                 prepare()
                 start()
             } catch (e: IOException) {
-                Log.e(LOG_TAG, "prepare() failed: ${e.message}")
+                Log.e(TAG, "prepare() failed: ${e.message}")
             }
         }
     }

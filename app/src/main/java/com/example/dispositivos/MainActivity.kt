@@ -15,6 +15,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresPermission
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Bluetooth
 import androidx.compose.material.icons.outlined.Mic
+import androidx.compose.material.icons.outlined.Screenshot
 import androidx.compose.material.icons.outlined.Wifi
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -41,7 +43,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import com.android.audiorecordtest.GrabacionDeAudioActivity
 import com.example.dispositivos.ui.theme.DispositivosTheme
 
 class MainActivity : ComponentActivity() {
@@ -79,6 +80,11 @@ class MainActivity : ComponentActivity() {
                         onToggleMicrofono = {
                             checkAudioPermission(audioPermissionLauncher)
                         },
+                        onTogglePantalla = {
+                            Intent(this, PantallaScreenActivity::class.java).also {
+                                startActivity(it)
+                            }
+                        },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -113,6 +119,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
     private fun toggleBluetooth(bluetoothAdapter: BluetoothAdapter?, enable: Boolean) {
         if (bluetoothAdapter == null) return
 
@@ -146,6 +153,7 @@ fun DispositivosScreen(
     onToggleWifi: (Boolean) -> Unit,
     onToggleBluetooth: (Boolean) -> Unit,
     onToggleMicrofono: () -> Unit,
+    onTogglePantalla: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     // Estados que se actualizan automáticamente
@@ -241,5 +249,29 @@ fun DispositivosScreen(
                 )
             }
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Botón Pantalla
+        Button(
+            onClick = { onTogglePantalla() },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Screenshot,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+                Text(
+                    text = "3.- Pantalla"
+
+                )
+            }
+        }
+
     }
 }
