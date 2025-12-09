@@ -73,6 +73,7 @@ fun DispositivosScreen(
         isWifiEnabled = wifiManager.isWifiEnabled
     }
 
+
     Column(
         modifier = modifier
             .fillMaxSize()
