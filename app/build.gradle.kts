@@ -62,4 +62,11 @@ dependencies {
 
     implementation("androidx.compose.material:material-icons-extended:1.7.8") // se puso agregó ya que ahora compsoe bom no lo incluye
 
+    // CameraX
+    val camerax_version = "1.3.0"
+    implementation("androidx.camera:camera-core:${camerax_version}")
+    implementation("androidx.camera:camera-camera2:${camerax_version}")
+    implementation("androidx.camera:camera-lifecycle:${camerax_version}")
+    implementation("androidx.camera:camera-view:${camerax_version}")
+
 }
