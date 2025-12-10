@@ -15,7 +15,6 @@
          y monitorear cambios en la conectividad -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <!--Bluetooth-->
     <!-- Para desactivar Bluetooth en versiones anteriores a Android 13 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -33,6 +32,12 @@
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
+
+    <!--Permiso para acceder a la cámara-->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -64,6 +69,20 @@
 
         <activity
             android:name=".PantallaScreenActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dispositivos">
+        </activity>
+
+        <activity
+            android:name=".AltavozScreenActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dispositivos">
+        </activity>
+
+        <activity
+            android:name=".CameraScreenActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dispositivos">
